@@ -305,15 +305,17 @@ function seedInitialData() {
   const salt = bcrypt.genSaltSync(10);
   const adminHash = bcrypt.hashSync('admin123', salt);
   const managerHash = bcrypt.hashSync('manager123', salt);
+  const cashierHash = bcrypt.hashSync('cashier123', salt);
   const staffHash = bcrypt.hashSync('staff123', salt);
 
   const insertUser = db.prepare(`
-    INSERT INTO users (username, email, password_hash, full_name, role, department)
+    INSERT OR IGNORE INTO users (username, email, password_hash, full_name, role, department)
     VALUES (?, ?, ?, ?, ?, ?)
   `);
   insertUser.run('admin', 'admin@inventory.local', adminHash, 'Eleanor Vance (Admin)', 'admin', 'Executive & IT');
   insertUser.run('manager', 'manager@inventory.local', managerHash, 'Marcus Sterling (Manager)', 'manager', 'Warehouse & Supply Chain');
-  insertUser.run('cashier', 'cashier@inventory.local', staffHash, 'Chloe Bennet (POS Staff)', 'cashier', 'Retail & Front Desk');
+  insertUser.run('cashier', 'cashier@inventory.local', cashierHash, 'Chloe Bennet (POS Cashier)', 'cashier', 'Retail & Front Desk');
+  insertUser.run('staff', 'staff@inventory.local', staffHash, 'David Miller (Warehouse Staff)', 'staff', 'Inventory Operations');
 
   // Seed Warehouses
   const insertWarehouse = db.prepare('INSERT INTO warehouses (name, location, contact, is_default) VALUES (?, ?, ?, ?)');
