@@ -3,6 +3,7 @@ node_modules/
 client/node_modules/
 
 # Production build
+dist/
 client/dist/
 
 # Logs
@@ -23,3 +24,5 @@ server/*.db-wal
 # OS files
 .DS_Store
 Thumbs.db
+
+.vercel

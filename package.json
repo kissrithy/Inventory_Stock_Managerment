@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "postinstall": "npm --prefix client install",
-    "build": "npm --prefix client run build",
+    "build": "npm --prefix client run build && node -e \"const fs=require('fs'); fs.cpSync('client/dist', 'dist', {recursive: true});\"",
     "start": "node server/index.js",
     "server": "node server/index.js",
     "client": "npm --prefix client run dev",
