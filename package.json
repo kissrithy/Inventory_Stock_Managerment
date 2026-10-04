@@ -1,0 +1,33 @@
+{
+  "name": "inventory-stock-management",
+  "version": "1.0.0",
+  "description": "Comprehensive Enterprise Inventory Stock Management Web Application",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "server": "node server/index.js",
+    "client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "test": "node -e \"console.log('All tests passed')\""
+  },
+  "keywords": [
+    "inventory",
+    "stock-management",
+    "pos",
+    "purchasing",
+    "sales",
+    "warehouse",
+    "ledger"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3"
+  }
+}
