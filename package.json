@@ -4,10 +4,11 @@
   "description": "Comprehensive Enterprise Inventory Stock Management Web Application",
   "main": "server/index.js",
   "scripts": {
+    "postinstall": "npm --prefix client install",
+    "build": "npm --prefix client run build",
     "start": "node server/index.js",
     "server": "node server/index.js",
     "client": "npm --prefix client run dev",
-    "build": "npm --prefix client run build",
     "test": "node -e \"console.log('All tests passed')\""
   },
   "keywords": [

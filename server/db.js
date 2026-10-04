@@ -2,7 +2,8 @@ const Database = require('better-sqlite3');
 const path = require('path');
 const bcrypt = require('bcryptjs');
 
-const dbPath = path.join(__dirname, 'inventory.db');
+const isVercel = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+const dbPath = isVercel ? path.join('/tmp', 'inventory.db') : path.join(__dirname, 'inventory.db');
 const db = new Database(dbPath);
 
 // Enable foreign keys and WAL mode for better concurrency
